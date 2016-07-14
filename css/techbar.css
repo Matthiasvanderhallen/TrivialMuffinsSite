@@ -1,0 +1,60 @@
+#techbar{
+  width: 100%;
+}
+
+div#techbar .container{
+  background-color: rgb(20,20,20);
+}
+
+.bar-gutter{
+  text-align: right;
+  vertical-align:middle;
+}
+
+ul.bar {
+  list-style-type:none;
+  display:inline-flex;
+}
+
+.bar {/*float: right;*/
+  margin-bottom:0px;
+}
+
+.lang.bar {
+  /*float:right;*/
+  padding-left: 0px;
+}
+.lang.bar>li {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.lang.bar>li>a {
+  color: white;
+}
+
+.social.bar {
+  /*float:right;*/
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
+.social.bar>li {
+  padding-left:2px;
+  padding-right:2px;
+}
+
+.bar.separator{
+  border-left-style: solid;
+  border-left-color: white;
+  border-left-width: 1px;
+  width: 0px;
+  display: inline;
+  /*float:right*/
+  /*display: hidden;*/
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.icon {
+  width: 20px;
+}

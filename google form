@@ -1,0 +1,61 @@
+<section id="Ticket">
+  <h1>And Then There Were None</h1>
+  <h2 style="font-variant:small-caps">Begin oktober</h2>
+  <p>
+    Tickets voor "And Then There Were None" zijn beschikbaar vanaf 1 augustus 2016. Als je een herinnering wil van zodra de tickets beschikbaar zijn, vul dan hieronder je e-mailadres in.
+  </p>
+  <div class="GoogleForm" style="margin-top: 25px; text-align: center">
+    <script type="text/javascript">var submitted=false;</script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+    onload="if(submitted) {document.getElementById('Confirmation').style.display = 'block';}"></iframe>
+    <form action="https://docs.google.com/a/trivialmuffins.com/forms/d/1vUzEv4x2j1AEq-opfoMA__QFo9aXW0pS38-8zo0orlk/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+    <!--<form action="https://docs.google.com/a/trivialmuffins.com/forms/d/1vUzEv4x2j1AEq-opfoMA__QFo9aXW0pS38-8zo0orlk/formResponse" method="POST" id="ss-form" target="_self" onsubmit=""><ol role="list" class="ss-question-list" style="padding-left: 0">-->
+      <div class="ss-form-question errorbox-good" role="listitem">
+      <div dir="auto" class="ss-item ss-item-required ss-text"><div class="ss-form-entry">
+      <label class="ss-q-item-label" for="entry_1567981184"><div class="ss-q-title">
+      <label for="itemView.getDomIdToLabel()" aria-label="(Required field)"></label>
+      <span class="ss-required-asterisk" aria-hidden="true"></span></div>
+      <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+      <input style="width: 300px; color: rgba(0,0,0,0.5);" type="email" name="entry.1567981184" value="E-mail" class="ss-q-short" id="entry_1567981184" dir="auto" aria-label="E-mailadres E-mailadres" aria-required="true" required="">
+      <input style="color: rgb(22,22,22)"type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action ">
+      </div></div></div>
+      <input type="hidden" name="draftResponse" value="[,,&quot;-7233301685257648965&quot;]
+      ">
+      <input type="hidden" name="pageHistory" value="0">
+
+      <input type="hidden" name="fvv" value="0">
+
+
+      <input type="hidden" name="fbzx" value="-7233301685257648965">
+
+      <div class="ss-item ss-navigate"><table id="navigation-table"><tbody><tr><td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
+      </tr></tbody></table></div></ol>
+    </form>
+    <p id="Confirmation" style="margin-top: 5px; text-align:center;display:none;">Uw e-mailadres is correct opgeslagen. Hartelijk bedankt voor uw interesse!</p>
+    <script type="text/javascript">
+
+      (function() {
+        var divs = document.getElementById('ss-form').
+        getElementsByTagName('div');
+        var numDivs = divs.length;
+        for (var j = 0; j < numDivs; j++) {
+        if (divs[j].className == 'errorbox-bad') {
+        divs[j].lastChild.firstChild.lastChild.focus();
+        return;
+        }
+        }
+        for (var i = 0; i < numDivs; i++) {
+        var div = divs[i];
+        if (div.className == 'ss-form-entry' &&
+        div.firstChild &&
+        div.firstChild.className == 'ss-q-title') {
+        div.lastChild.focus();
+        return;
+        }
+        }
+        })();
+    </script>
+    <script type="text/javascript" src="/static/forms/client/js/1844173034-formviewer_prd.js"></script>
+  </div>
+  <!--<iframe src="https://docs.google.com/forms/d/1vUzEv4x2j1AEq-opfoMA__QFo9aXW0pS38-8zo0orlk/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
+</section>

@@ -1,0 +1,232 @@
+/*@font-face {
+  font-family: 'Avenir Next';
+  src: url('AvenirNext-UltraLight.ttf') format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('AvenirNext-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('AvenirNext-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('AvenirNext-Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+/**/
+@media (min-width: 768px){
+  .container {
+    width: 66%;/*66% van steps*/
+  }
+}
+
+.nav>li>a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/** Body background and text color **/
+body {
+  background: rgb(0,0,0) no-repeat fixed;
+  color: rgb(220,220,220);
+}
+
+/** content always fills entire height **/
+html{
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: 'Avenir Next';
+}
+
+.full{
+    min-height: 100%;
+}
+
+/** content starts under nav bar and right from muffin brand image **/
+.content {
+  padding-top: 120px;
+  padding-left: 45px;
+  padding-right: 45px;
+  font-weight: 200;
+  letter-spacing: 0px;
+}
+
+/** Header and Header image **/
+#header{
+  /*font-family: Georgia;*/
+  font-family: 'Avenir Next';
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-style: italic;
+  /*color: #ff4d4d; /*rgb(200, 180, 170);*/
+  color: rgb(193,28,28);
+  text-align: center;
+}
+
+#headerimage{
+  height: 50%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header h2{
+  font-size: 9vmin; /*60px;*/
+}
+
+/** general styling **/
+
+h1, h2{
+  margin-top: 50px;
+}
+
+p {
+  font-size: 16px;
+}
+
+section a, section a:hover{
+  /*background-color: rgba(0,0,0, 0.2);*/
+  font-size: 18px;
+  /*color: #ff4d4d; /*;rgb(255, 100, 100); /* #ff4d4d; /*rgb(200, 180, 170);*/
+  color: rgb(193,28,28);
+  /*text-shadow: 1px 1px;*/
+  font-weight: bold;
+}
+
+section a:hover{
+  text-decoration: underline;
+}
+
+/** Ticket h2 **/
+
+#Ticket h2{
+  margin-top: 10px;
+}
+
+/** navbar styling **/
+.navbar {
+  /*width:1170px;
+  margin-left:auto;
+  margin-right:auto;*/
+  background-color: inherit;
+  border-width: 0 0 0px;
+}
+
+.navbar .container{
+  background-color: rgb(34,34,34);
+  border-width: 0 0 1px;
+}
+
+.navbar-padding{
+  height:20px;
+  background:rgb(0,0,0);
+}
+
+.nav {
+  /*font-weight: bold;*/
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 16px;
+}
+
+.navbar-brand{
+  padding: 0px 0px 0px 0px;
+}
+
+.team-modal {
+  color: rgb(0,0,0);
+}
+
+/** Visitekaart**/
+.Visitekaart{
+  display: flex;
+  /*justify-content: flex-start;
+  flex-direction: row;*/
+  justify-content: flex-start;
+  flex-direction: column;
+  /*align-items: stretch;*/
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Visitekaart .Informatie h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 2;
+}
+
+.Visitekaart .Profielfoto {
+  width: 100%;
+  text-align: center;
+}
+
+.Visitekaart .Profielfoto img{
+  /*max-width: 100%;
+  max-height: 100%;*/
+  width: 80%;
+  /*width: 150px;*/
+  /*height: 150px;*/
+}
+
+.Separator {
+  flex-grow: 0;
+  border-left: thin solid rgb(222,222,222);
+  margin-left: 10px;
+  margin-right:10px;
+}
+
+.row {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/*.lang-bar, .social-bar {
+  float:right;
+}
+
+ul.lang-bar, ul.social-bar {
+  list-style-type: none;
+}
+
+.lang-bar>li, .social-bar>li {
+  float: left;
+}*/
+
+
+img.portfolio-item-content {
+  width: 100%;
+  max-width: 200px;
+}
+
+.content-fit{
+  display:inline-block;
+}
+
+/* STUK EDITS */
+
+
+/*.nav>li{
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-family: 'Avenir Next';
+  letter-spacing: 1px;
+}
+
+#header{
+  color: #C11C1C;
+}
+*/

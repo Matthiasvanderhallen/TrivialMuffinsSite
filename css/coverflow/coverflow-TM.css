@@ -1,0 +1,17 @@
+.ui-coverflow-wrapper {
+  height: 450px;
+}
+
+.coverflow.landscape {
+  width: 153px;
+  height: 102px;
+}
+
+.coverflow-fullsize-wrapper {
+  text-align: center;
+}
+
+.coverflow-fullsize {
+  width: 50%;
+  height: 50%;
+}

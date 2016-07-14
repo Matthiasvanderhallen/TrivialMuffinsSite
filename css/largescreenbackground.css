@@ -1,0 +1,44 @@
+@media only screen and (min-width: 700px) and (min-aspect-ratio: 12/10){
+  .content {
+    background: rgba(0,0,0,0.75);
+  }
+
+  /*body.t1 {
+    background: url('../img/Earnest/Being_earnest-0532.jpg') no-repeat fixed; /*0532*/ /*0490*/
+    /*background-position: 0px 0px;/**/
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }*/
+
+  body.t1 {
+    background: url('../img/TM_siteBG_2.jpg') no-repeat fixed, rgb(0,0,0) no-repeat fixed;
+    background-position: bottom left;
+    background-size: 100% auto;
+  }
+
+  body.t2 {
+    background: url('../img/TM_siteBG_2.jpg') no-repeat fixed, rgb(0,0,0) no-repeat fixed;
+    background-position: bottom left;
+    background-size: 100% auto;
+
+  }
+
+  body.t3 {
+  	background: url('../img/TM_siteBG_1.jpg') no-repeat fixed, rgb(0,0,0) no-repeat fixed;
+    background-position: bottom right;
+    background-size: 100% auto;
+  }
+
+  body.t4 {
+  	background: url('../img/TM_siteBG_2.jpg') no-repeat fixed, rgb(0,0,0) no-repeat fixed;
+    background-position: bottom left;
+    background-size: 100% auto;
+  }
+
+  body.t5 {
+  	background: url('../img/TM_siteBG_3.jpg') no-repeat fixed, rgb(0,0,0) no-repeat fixed;
+    background-position: bottom right;
+    background-size: 100% auto;
+  }
+}
