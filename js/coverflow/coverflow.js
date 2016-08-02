@@ -1,5 +1,5 @@
-/*! CoverflowJS - v3.0.0 - 2014-01-25
-* Copyright (c) 2014 Paul Baukus, Addy Osmani, Sebastian Sauer, Brandon Belvin, April Barrett; Licensed MIT */
+/*! CoverflowJS - v3.0.2 - 2015-12-31
+* Copyright (c) 2015 Paul Baukus, Addy Osmani, Sebastian Sauer, Brandon Belvin, April Barrett, Kirill Kostko; Licensed MIT */
 /*! jQuery UI - v1.10.4 - 2014-01-17
 * http://jqueryui.com
 * Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.effect.js
@@ -2109,6 +2109,11 @@ $.each( baseEasings, function( name, easeIn ) {
 
 (function( $, window, document, undefined ) {
 
+$.coverflow = {
+	renderer : {},
+	support : {}
+};
+
 function ClassicRenderer( widget, element, items, options ) {
 
 	var me = this;
@@ -2199,7 +2204,8 @@ ClassicRenderer.prototype = {
 					? ( 1 - state )
 					: ( i === from ? state : 1 ),
 				css = {
-					zIndex: itemLength + ( side === "left" ? to - i : i - to ) + 10
+					zIndex: itemLength + ( side === "left" ? to - i : i - to ) + 10,
+					visibility: "visible"
 				},
 				scale = ( 1 - mod * ( 1 - o.scale )  ),
 				matrixT = [
@@ -2215,6 +2221,13 @@ ClassicRenderer.prototype = {
 					: itemSize / 2 - ( itemSize / 2 * o.overlap )
 				) * mod
 			);
+
+			if( o.visibleAside > 0
+				&& ( i < to - o.visibleAside
+				|| i > to + o.visibleAside )
+			) {
+				css.visibility = "hidden";
+			}
 
 			if( $.coverflow.isOldie ) {
 				if( i === to ) {
@@ -2234,7 +2247,7 @@ ClassicRenderer.prototype = {
 
 		var me = this;
 
-		if( $.support.transform ) {
+		if( $.coverflow.support.transform ) {
 			me._matrixTransform.apply( me, arguments );
 			return;
 		}
@@ -2258,15 +2271,10 @@ ClassicRenderer.prototype = {
 	}
 };
 
-if( $.coverflow == null ) {
-	$.coverflow = {
-		renderer : {}
-	};
-}
-
 $.extend( $.coverflow.renderer, {
 	Classic : ClassicRenderer
 });
+
 
 function toRadian ( angle ) {
 	return parseFloat( ( angle * 0.017453 ) .toFixed( 6 ) );
@@ -2388,7 +2396,8 @@ ThreeDRenderer.prototype = {
 					? ( 1 - state )
 					: ( i === from ? state : 1 ),
 				css = {
-					zIndex: itemLength + ( side === "left" ? to - i : i - to ) + 10
+					zIndex: itemLength + ( side === "left" ? to - i : i - to ) + 10,
+					visibility: "visible"
 				},
 				scale = 1 - ( mod * ( 1 - o.scale ) ),
 				angle = side === "right" ? o.angle : - o.angle,
@@ -2402,6 +2411,13 @@ ThreeDRenderer.prototype = {
 				( mod * i * renderedWidth * ( 1 - o.overlap ) ) +
 				( ( 1 - mod ) * i * renderedWidth * ( 1 - o.overlap ) )
 			);
+
+			if( o.visibleAside > 0
+				&& ( i < to - o.visibleAside
+				|| i > to + o.visibleAside )
+			) {
+				css.visibility = "hidden";
+			}
 
 			// transponed matrix
 			matrixT = [
@@ -2418,12 +2434,6 @@ ThreeDRenderer.prototype = {
 		});
 	}
 };
-
-if( $.coverflow == null ) {
-	$.coverflow = {
-		renderer : {}
-	};
-}
 
 $.extend( $.coverflow.renderer, {
 	ThreeD : ThreeDRenderer
@@ -2446,8 +2456,6 @@ $.extend( $.coverflow.renderer, {
  *
  */
 
-	
-
 	/**
 	 * http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 	 * http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
@@ -2465,6 +2473,7 @@ $.extend( $.coverflow.renderer, {
 		vendorsLength = vendors.length,
 		vendorPrefix = "",
 		x = 0,
+		support = $.coverflow.support,
 		capitalize = function( string ) {
 			return string.charAt( 0 ).toUpperCase() + string.slice( 1 );
 		};
@@ -2504,24 +2513,32 @@ $.extend( $.coverflow.renderer, {
 		if( p !== "ms" ) {
 			p = capitalize( p );
 		}
-		if( ! $.support.transform  && p + "Transform" in style ) {
-			$.support.transform = p + "Transform";
+		if( ! support.transform  && p + "Transform" in style ) {
+			support.transform = p + "Transform";
 		}
-		if( ! $.support.transition && p + "Transition" in style ) {
-			$.support.transition = p + "Transition";
+		if( ! support.transition && p + "Transition" in style ) {
+			support.transition = p + "Transition";
 		}
 
-		if( $.support.transform && $.support.transition ) {
+		if( support.transform && support.transition ) {
 			vendorPrefix = p;
 			return false;
 		}
 		return true;
 	});
 
-	if( ! $.support.transform || ! $.support.transition ) {
+	if( ! support.transform || ! support.transition ) {
 
-		$.support.transform = "transform" in style ? "transform" : false;
-		$.support.transition = "transition" in style ? "transition" : false;
+		support.transform = "transform" in style ? "transform" : false;
+		support.transition = "transition" in style ? "transition" : false;
+	}
+
+	// expose feature support if not already set
+	if( $.support.transform == null ) {
+		$.support.transform = support.transform;
+	}
+	if( $.support.transition == null ) {
+		$.support.transition = support.transition;
 	}
 
 	if( $.cssProps == null ) {
@@ -2676,7 +2693,7 @@ $.extend( $.coverflow.renderer, {
         }
     }
 
-    $.support.transform3d = (function() {
+    $.coverflow.support.transform3d = (function() {
 
         var ret = !! testPropsAll( "perspective" );
 
@@ -2691,6 +2708,11 @@ $.extend( $.coverflow.renderer, {
         }
         return ret;
     })();
+
+	// expose feature support if not already set
+    if( $.support.transform3d == null ) {
+	    $.support.transform3d = $.coverflow.support.transform3d;
+    }
 
 
 /**
@@ -2720,8 +2742,6 @@ $.extend( $.coverflow.renderer, {
  *  select
  */
 
-
-	
 
 	function debounce( func, threshold ) {
 
@@ -2819,6 +2839,7 @@ $.extend( $.coverflow.renderer, {
 			items : "> *",
 			active : 0,
 			duration : 400,
+			visibleAside: null,
 			easing : "easeOutQuint",
 			// renderer options
 			// angle and perspective are only available when the browser supports 3d transformations
@@ -2841,7 +2862,8 @@ $.extend( $.coverflow.renderer, {
 			var me = this,
 				o = this.options,
 				Renderer,
-				rendererOptions;
+				rendererOptions,
+				support = $.coverflow.support || {};
 
 			me.elementOrigStyle = me.element.attr( "style" );
 
@@ -2861,14 +2883,16 @@ $.extend( $.coverflow.renderer, {
 
 			me._setDimensions();
 
+			me.support = support;
+
 			if ( // transform is not supported
-				! $.support.transform
+				! support.transform
 				// or is old IE
 				|| isOldie
 				// or it's opera: fails to create a perspective on coverflow items
 				|| window.opera != null
 				// or no css3 transformation is available
-				|| ! $.support.transform3d
+				|| ! support.transform3d
 			) {
 				Renderer = $.coverflow.renderer.Classic;
 			} else {
@@ -2881,6 +2905,9 @@ $.extend( $.coverflow.renderer, {
 				scale: o.scale,
 				overlap: o.overlap,
 				itemSize : me.itemSize,
+				visibleAside: o.visibleAside !== null && ! isNaN( parseInt( o.visibleAside, 10 ) )
+					? parseInt( o.visibleAside, 10 )
+					: 0,
 				outerWidth : me.outerWidth
 			};
 
@@ -2906,8 +2933,13 @@ $.extend( $.coverflow.renderer, {
 
 			if( o.trigger.mousewheel ) {
 				me._on({
-					mousewheel: me._onMouseWheel,
-					DOMMouseScroll: me._onMouseWheel
+					wheel: debounce(me._onMouseWheel, 20),
+					DOMMouseScroll: debounce(me._onMouseWheel, 20)
+				});
+
+				me._on({
+					wheel: me._preventPageScroll,
+					DOMMouseScroll: me._preventPageScroll
 				});
 			}
 
@@ -2915,7 +2947,7 @@ $.extend( $.coverflow.renderer, {
 				me._bindSwipe();
 			}
 
-			me.useJqueryAnimate = ! ( $.support.transition && $.isFunction( window.requestAnimationFrame ) );
+			me.useJqueryAnimate = ! ( support.transition && $.isFunction( window.requestAnimationFrame ) );
 
 			me.coverflowrafid = 0;
 		},
@@ -3139,7 +3171,7 @@ $.extend( $.coverflow.renderer, {
 					}
 
 					me.element
-						.unbind( eventsMap[ $.support.transition ] );
+						.unbind( eventsMap[ me.support.transition ] );
 				}
 			}
 			me.isTicking = true;
@@ -3219,7 +3251,7 @@ $.extend( $.coverflow.renderer, {
 			}
 
 			me.element
-				.one( eventsMap[ $.support.transition ],
+				.one( eventsMap[ me.support.transition ],
 					function() {
 						me._refresh( 1, from, to );
 						me._onAnimationEnd();
@@ -3260,11 +3292,19 @@ $.extend( $.coverflow.renderer, {
 				index: index != null ? index : this.currentIndex
 			};
 		},
-		_onMouseWheel : function ( ev ) {
-			var origEv = ev.originalEvent;
-
+		_preventPageScroll : function(ev) {
 			ev.preventDefault();
-			if( origEv.wheelDelta > 0 || origEv.detail < 0 ) {
+		},
+		_onMouseWheel : function ( ev ) {
+			var origEv = ev.originalEvent,
+				delta = Math.abs(origEv.wheelDelta) > 0 ? origEv.wheelDelta : -origEv.detail;
+
+			// mac os specific - fighting trackpad clumsy scrolling behaviour
+			if( delta > -10 && delta < 3 ) {
+				return;
+			}
+
+			if( delta > 0 ) {
 				this.prev();
 				return;
 			}
@@ -3308,5 +3348,6 @@ $.extend( $.coverflow.renderer, {
 			me._super();
 		}
 	});
+
 
 })( jQuery, this, this.document );
