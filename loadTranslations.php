@@ -29,7 +29,7 @@ function setCookie(cname, cvalue, exdays) {
     echo "setLanguage('$lang');";
   }
 
-  $sqlitedb = new PDO('sqlite:../website.db');
+  $sqlitedb = new PDO('sqlite:website.db');
   $translations = $sqlitedb->query("SELECT $language FROM translations")->fetchAll(PDO::FETCH_COLUMN, $language);
  ?>
 </script>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="<?=$language?>">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
     <title>Trivial Muffins Theatre Association</title>
-    <link rel="shortcut icon" href="/img/favicon_old.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/thebigpicture.css" rel="stylesheet">
@@ -32,32 +32,38 @@
 
   <body id="dummybodyid" data-spy="scroll" data-target="#navbar">
 
-    <?php include 'navbar.php'; ?>
+    <?php
+     include 'navbar.php';
+    ?>
 
     <div class="container full content">
-      <section id="intro">
-        <h1><?= $translations[16] ?></h1>
-        <p>
-          <?= $translations[17] ?>
-        </p>
+      <section id="header">
+        <img id="headerimage" src="/img/MuffinDefinitief.png"/>
+        <h2><?= $translations[6] ?></h2>
       </section>
-      <section id="story">
-        <h2><?= $translations[18] ?></h2>
-        <p><?= $translations[19] ?></p>
-
-        <blockquote>
-           Ten little Indian Boys went out to dine;<br>
-           One choked his little self and then there were nine.<br>
-           <br>
-           Nine little Indian Boys sat up very late;<br>
-           One overslept himself and then there were eight.
-        </blockquote>
+      <section id="home">
+        <h1>Trivial Muffins</h1>
+        <p><?= $translations[7] ?></p>
+        <!--<p class="lead">Leuven-based Theatre Association.</p>-->
+      </section>
+      <section id="CurrentShow">
+        <h2><?= $translations[8] ?></h2>
+	<h3><?= $translations[70] ?></h3>
+        <p><?= $translations[9] ?></p>
+        <p><a href="AndThen.php"><?= $translations[10] ?></a></p>
+        <p><a href="Tickets.php"><?= $translations[11] ?></a></p>
+      </section>
+      <section id="">
+        <h2><?= $translations[12] ?></h2>
+        <p><?= $translations[13] ?></p>
+        <p><a href="Portfolio.php"><?= $translations[14] ?></a></p>
+        <div class="text-center">
+                  <img src="/img/Earnest/Earnest.png" class="centered portfolio-item-content"/>
+        </div>
       </section>
       <section>
-        <h2><?= $translations[20] ?></h2>
-        <p>
-          <?= $translations[21] ?>
-        </p>
+        <h2>Contact</h2>
+        <p><?= $translations[15] ?></a></p>
       </section>
     </div>
 
@@ -66,15 +72,15 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-      $('#navbar-play').addClass("active");
-      $('#navbar-play a').attr("href","#");
+      $('#navbar-home').addClass("active");
+      $('#navbar-home a').attr("href","#");
     </script>
     <script>
       var i = 0;
-      $("body").addClass(["t3","t4","t5","t2"][Math.floor(Math.random()*5)]);
+      $("body").addClass(["t3","t4","t5","t2"][Math.floor(Math.random()*4)]);
       function next(){
         $("body").removeClass();
-        $("body").addClass(["t3","t4","t5","t2"][i%5]);
+        $("body").addClass(["t3","t4","t5","t2"][i%4]);
         i++;
       }
     </script>

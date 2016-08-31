@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
     <title>Trivial Muffins Theatre Association</title>
-    <link rel="shortcut icon" href="/img/favicon_old.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/thebigpicture.css" rel="stylesheet">
@@ -35,24 +35,15 @@
     <?php include 'navbar.php'; ?>
 
     <div class="container full content">
-      <section id="Contact">
-        <h1>Contact</h1>
+      <section id="Ticket">
+        <h1><?= $translations[16]?></h1>
+        <h2 style="font-variant:small-caps">Begin oktober</h2>
         <p>
-          <?= $translations[29] ?>
+          <?= $translations[23]?>
         </p>
         <p>
-          <?= $translations[30] ?>
+          <?= $translations[26]?>
         </p>
-        <p style="margin-left: 10px">
-
-           <a href="mailto:contact@trivialmuffins.com">contact@trivialmuffins.com</a></br>
-           <a href="http://www.facebook.com/TrivialMuffins">http://www.facebook.com/TrivialMuffins, <?= $translations[31] ?></a></br>
-           <a href="tel:+32497170600">tel: +32 497 17 06 00</a>
-        </p>
-      </section>
-      <section id="EmailAlert">
-        <h2><?= $translations[32] ?></h2>
-        <p><?= $translations[33] ?></p>
         <div class="GoogleForm" style="margin-top: 25px; text-align: center">
           <script type="text/javascript">var submitted=false;</script>
           <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
@@ -61,34 +52,15 @@
               <div id="mc_embed_signup_scroll">
 
           	<input style="width: 300px; color: rgba(0,0,0,0.5);" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-            <input style="color: rgb(22,22,22)" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            <input style="color: rgb(22,22,22)" type="submit" value="<?= $translations[24]?>" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
               <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
               <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6b495c9f944fd0f3a07ef48a5_1873fe4b40" tabindex="-1" value=""></div>
+
+              </div>
           </form>
-          <p id="Confirmation" style="margin-top: 5px; text-align:center;display:none;">Uw e-mailadres is correct opgeslagen, en er werd een e-mail gestuurd waar u uw registratie kunt bevestigen. Hartelijk bedankt voor uw interesse!</p>
+          <p id="Confirmation" style="margin-top: 5px; text-align:center;display:none;"><?= $translations[25]?></p>
         </div>
-      </section>
-      <section>
-        <h2><?= $translations[34] ?></h2>
-        <p style="margin-left: 10px">
-          Trivial Muffins theatre association<br>
-          Pieter Nollekensstraat 54 bus 1<br>
-          3010 Kessel-Lo (Leuven)<br>
-          <?= $translations[35] ?>
-        </p>
-      </section>
-      <section>
-        <h2><?= $translations[36] ?></h2>
-        <p><?= $translations[37] ?></p>
-        <p style="margin-left: 10px">
-          Reynaerttheater Malpertuus<br>
-          Redingenstraat 4<br>
-          3000 Leuven<br>
-          <?= $translations[35] ?>
-        </p>
-      </section>
-      <section>
-        <iframe src="https://www.google.com/maps/d/embed?mid=z2rLSVzq9BKM.k6l0bMre6ZHs" width="100%" height="400vh"></iframe>
+        <!--<iframe src="https://docs.google.com/forms/d/1vUzEv4x2j1AEq-opfoMA__QFo9aXW0pS38-8zo0orlk/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
       </section>
     </div>
 
@@ -97,8 +69,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
-      $('#navbar-contact').addClass("active");
-      $('#navbar-contact a').attr("href","#");
+    $('#navbar-tickets').addClass("active");
+    $('#navbar-tickets a').attr("href","#");
     </script>
     <script>
       var i = 0;

@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
     <title>Trivial Muffins Theatre Association</title>
-    <link rel="shortcut icon" href="/img/favicon_old.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/starter-template.css" rel="stylesheet">
@@ -31,53 +31,14 @@
     <![endif]-->
   </head>
 
+  <?php include 'loadTranslations.php'; ?>
+
   <body id="dummybodyid" data-spy="scroll" data-target="#navbar">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-padding"></div>
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand hidden-med" href="index.html"><img src="/img/MuffinHome.png"></a>
-          <a class="navbar-brand visible-med" href="index.html"><img src="/img/MuffinHomeSmall.png"></a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li role="navigation"><a href="index.html">Accueil</a></li>
-            <li role="navigation"><a href="AndThen.html">À venir</a></li>
-            <li role="navigation"><a href="Tickets.html">Tickets</a></li>
-            <li role="navigation"><a href="Portfolio.html">Portfolio</a></li>
-            <li role="navigation" class="active"><a href="Over.html">À propos</a></li>
-            <li role="navigation"><a href="Contact.html">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-      <div id="techbar">
-        <div class="container" style="line-height:31px;">
-          <div class="bar-gutter">
-            <ul class="social bar">
-              <li id="fb"><a href="https://www.facebook.com/TrivialMuffins" target="_blank"><img src="/img/fb_icon.png" class="icon"></a></li>
-              <li id="twitter"><a href="https://www.instagram.com/trivialmuffins/" target="_blank"><img src="/img/instagram_icon_white.png" class="icon"></a></li>
-              <li id="instagram"><a href="https://twitter.com/TrivialMuffins" target="_blank"><img src="/img/twitter_icon.png" class="icon"></a></li>
-            </ul>
-            <div class="bar separator"></div>
-            <ul class="lang bar">
-              <li id="nl" role="navigation" ><a href="/index.html">NL</a></li>
-              <li id="fr" role="navigation" class="active"><a href="/fr/index.html">FR</a></li>
-              <li id="en" role="navigation" ><a href="/en/index.html">EN</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <?php include 'navbar.php'; ?>
 
     <div class="team-modal modal" id="portfolioModal" tabindex="-1" role="dialog" aria-hidden="true" style="height:100%;">
-      <div class="modal-content" style="min-width: 30%; max-width: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+      <div class="modal-content" style="min-width: 30%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
           <div class="close-modal" data-dismiss="modal">
               <div class="lr">
                   <div class="rl">
@@ -96,15 +57,15 @@
                       <div class="Informatie">
                         <h2 id="naam">Marieke Colleman</h2>
                         <dl>
-                          <dt>Rôle:</dt>
+                          <dt>Rol:</dt>
                           <dd id="rol">bestuur, Vera Claythorne in Tien Kleine Negertjes</dd>
-                          <dt>A propos:</dt>
+                          <dt>Over:</dt>
                           <dd id="over">Ze heeft geleerd altijd de blik omhoog te blijven richten.</dd>
                         </dl>
                       </div>
                     </div>
                     <div style="text-align:center; margin-bottom: 10px;">
-                      <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Fermer</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>Sluiten</button>
                     </div>
                   <section>
               </div>
@@ -114,13 +75,13 @@
 
     <div class="container full content">
       <section>
-        <h1>À propos</h1>
+        <h1>Over Ons</h1>
         <p>
-          Trivial Muffins veut vous offrir les chefs d’oeuvres du théâtre dans leur langue d’origine (sous-titrage Français) avec des décors riches et des costumes détaillés. Nous voulons vous procurer la joie de (re)découvrir ces grands classiques comme ils furent conçus à l’origine.
+          Trivial Muffins brengt theaterklassiekers in hun oorspronkelijke taal (met Nederlandse ondertitels) en met een rijk decor en realistische kostuums. We willen mensen laten genieten van de grootste werken zoals ze bedoeld zijn.
         </p>
       </section>
       <section id="Team">
-        <h2>L'equipe</h2>
+        <h2>Team</h2>
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4 centering">
@@ -155,18 +116,37 @@
             </a>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 centering">
-            <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Peter');">
-              <img  src="/img/Team/photoshoot/reduced/Peter.jpg" class="centered portfolio-item-content"/>
-            </a>
+              <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Tom');">
+                <div class="portfolio-item">
+                  <div class="portfolio-item-overlay"></div>
+                  <img src="/img/Team/Tom.jpg" class="centered portfolio-item-content"/>
+                </div>
+              </a>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4 centering">
+            <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Peter');">
+              <img  src="/img/Team/photoshoot/reduced/Peter.jpg" class="centered portfolio-item-content"/>
+            </a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 centering">
             <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Maarten');">
               <img  src="/img/Team/photoshoot/reduced/Maarten.jpg" class="centered portfolio-item-content"/>
             </a>
             </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 centering">
+              <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Matthias');">
+                <div class="portfolio-item">
+                  <div class="portfolio-item-overlay"></div>
+                  <img src="/img/Team/Matthias.jpg" class="centered portfolio-item-content"/>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4 centering">
             <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Xavier');">
               <img  src="/img/Team/photoshoot/reduced/Xavier.jpg" class="centered portfolio-item-content"/>
@@ -177,9 +157,6 @@
               <img  src="/img/Team/photoshoot/reduced/Ivana.jpg" class="centered portfolio-item-content"/>
             </a>
             </div>
-          </div>
-
-          <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4 centering">
               <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Niels');">
                 <div class="portfolio-item">
@@ -188,6 +165,9 @@
                 </div>
               </a>
             </div>
+          </div>
+
+          <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4 centering">
             <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Jeffrey');">
               <img  src="/img/Team/photoshoot/reduced/Jeffrey.jpg" class="centered portfolio-item-content"/>
@@ -198,9 +178,6 @@
               <img  src="/img/Team/photoshoot/reduced/Lies.jpg" class="centered portfolio-item-content"/>
             </a>
             </div>
-          </div>
-
-          <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4 centering">
               <a href="#portfolioModal" class="portfolio-link" data-toggle="modal" onclick="showEarnest('Agata');">
                 <div class="portfolio-item">
@@ -215,38 +192,38 @@
     </div>
 
     <script>
-    rol = { Hadrien: "Administrateur général, Philip Lombard dans Les dix petits nègres",
-            Alberick: "Administrateur, metteur en scène des Dix petits Nègres",
-            Marieke: "Administratuer, Vera Claythorne dans Les Dix petits Nègres",
-            Aurelien: "Aide à l’administration",
-            Tem: "Cheffe de la division textile",
-            Tom: "Chef de la division décor, technicien",
-            Ben: "William Blore dans Les Dix petits Nègres",
-            Peter: "Dr. Armstrong dans Les Dix petits Nègres",
-            Maarten: "Judge Wargrave dans Les Dix petits Nègres",
-            Matthias: "Chef de la division technique",
-            Xavier: "Division décor, technicien",
-            Ivana: "Emily Brent dans Les Dix petits Nègres",
-            Niels: "Thomas Rogers dans Les Dix petits Nègres",
-            Jeffrey: "General Mackenzie dans Les Dix petits Nègres",
-            Lies: "Cheffe grimage",
-            Agata: "Promo et Communication"};
-    over = { Hadrien: "C’est grâce à son manque absolu du sens des réalités<br> que nous sommes arrivés aussi loin.",
-             Alberick: "Il aime jouer avec les maux",
-             Marieke: "Elle conserve sa joie et son enthousiasme d'enfant… et aussi sa taille. ",
-             Aurelien: "Il est comme un frère pour nous.",
-             Tem: "Nous sommes heureux de la voir sourire, terrifiés quand elle ne sourit pas.",
-             Tom: "Il est bien outillé.",
-             Ben: "Parfois il peut être dur mais il nous donne beaucoup.",
-             Peter: "Parfois, nous aimerions qu’il soit moins honnête envers nous.",
-             Maarten: "Aux innocents les mains pleines.",
-             Matthias: "Il est capable de s’enliser dans chaque situation.",
-             Xavier: "[En cours d’analyse.]",
-             Ivana: "[En cours d’analyse.]",
-             Niels: "[En cours d’analyse.]",
-             Jeffrey: "[En cours d’analyse.]",
-             Lies: "[En cours d’analyse.]",
-             Agata: "[En cours d’analyse.]"};
+    rol = { Hadrien: "Voorzitter, Philip Lombard in Tien Kleine Negertjes",
+            Alberick: "Bestuur, regisseur van Tien Kleine Negertjes",
+            Marieke: "Bestuur, Vera Claythorne in Tien Kleine Negertjes",
+            Aurelien: "Administratieve hulp",
+            Tem: "Hoofd kostuumontwerp",
+            Tom: "Hoofd decorontwerp, technieker",
+            Ben: "William Blore in And Then There Were None",
+            Peter: "Dr. Armstrong in And Then There Were None",
+            Maarten: "Judge Wargrave in And Then There Were None",
+            Matthias: "Hoofdtechnieker",
+            Xavier: "Decorontwerper, technieker",
+            Ivana: "Emily Brent in And Then There Were None",
+            Niels: "Thomas Rogers in And Then There Were None",
+            Jeffrey: "General Mackenzie in And Then There Were None",
+            Lies: "Hoofd Grime",
+            Agata: "Promo & Communicatie"};
+    over = { Hadrien: "Het is allemaal door zijn gebrek aan realisme dat we zo ver zijn geraakt.",
+             Alberick: "Zijn straffe woordspelingen zijn vaak gewoon straffen",
+             Marieke: "Ze heeft geleerd altijd de blik omhoog te blijven richten.",
+             Aurelien: "Hij is als een broer voor ons allemaal.",
+             Tem: "We zijn blij als ze lacht en anders doodsbang.",
+             Tom: "Hij heeft echt wel goei gerief.",
+             Ben: "Hij kan soms hard zijn, maar we halen er veel uit.",
+             Peter: "Soms wouden we dat hij minder eerlijk was tegen ons.",
+             Maarten: "Onschuld moet je gebruiken in je eigen voordeel.",
+             Matthias: "Hij kan zich in elk probleem praten.",
+             Xavier: "[Wordt nog onderzocht.]",
+             Ivana: "[Wordt nog onderzocht.]",
+             Niels: "[Wordt nog onderzocht.]",
+             Jeffrey: "[Wordt nog onderzocht.]",
+             Lies: "[Wordt nog onderzocht.]",
+             Agata: "[Wordt nog onderzocht.]"};
 
     showEarnest = function(name){
       $('#naam').get(0).innerHTML = name;
@@ -254,12 +231,20 @@
       $('#over').get(0).innerHTML = over[name];
       $('#profiel').attr("src", "/img/Team/photoshoot/reduced/" + name + ".jpg");
     }
+
+    /*$('#portfolioModal').on('hidden.bs.modal', function(){
+      $('#profiel'.attr("src", "/img/Team/photshoot//Hadrien.jpg"));
+    })*/
     </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $('#navbar-about').addClass("active");
+      $('#navbar-about a').attr("href","#");
+    </script>
     <script>
       var i = 0;
       $("body").addClass(["t3","t4","t5","t2"][Math.floor(Math.random()*5)]);

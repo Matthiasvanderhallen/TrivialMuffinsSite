@@ -230,3 +230,7 @@ img.portfolio-item-content {
   color: #C11C1C;
 }
 */
+
+#navbar-play > a{
+  color: gold;/* !important; */
+}
